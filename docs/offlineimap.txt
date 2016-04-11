@@ -431,6 +431,13 @@ folder behind offlineimap's back, causing them to get assigned a new UID, or
 when offlineimap first syncs a pre-existing Maildir. In the latter case, it
 could appear as if a noticeable and random subset of old messages are synced.
 
+* Dry-run crashes upon encountering new local or remote folders
++
+`--dry-run` will die with `getfolder() asked for a nonexisting folder` when it
+encounters folders that it has not previously synced. This is unfortunately a
+result of the way that OfflineIMAP expects folders to look, and is nontrivial
+to fix. In the meantime, dry run should only be used when the same sets of 
+folders exist on the local and remote sides of the sync. 
 
 Main authors
 ------------
